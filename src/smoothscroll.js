@@ -123,19 +123,6 @@ function polyfill() {
   }
 
   /**
-   * indicates if an element has a scrollable overflow property in the axis
-   * @method canOverflow
-   * @param {Node} el
-   * @param {String} axis
-   * @returns {Boolean}
-   */
-  function canOverflow(el, axis) {
-    var overflowValue = w.getComputedStyle(el, null)['overflow' + axis];
-
-    return overflowValue === 'auto' || overflowValue === 'scroll';
-  }
-
-  /**
    * indicates if an element can be scrolled in either axis
    * @method isScrollable
    * @param {Node} el
@@ -143,8 +130,8 @@ function polyfill() {
    * @returns {Boolean}
    */
   function isScrollable(el) {
-    var isScrollableY = hasScrollableSpace(el, 'Y') && canOverflow(el, 'Y');
-    var isScrollableX = hasScrollableSpace(el, 'X') && canOverflow(el, 'X');
+    var isScrollableY = hasScrollableSpace(el, 'Y');
+    var isScrollableX = hasScrollableSpace(el, 'X');
 
     return isScrollableY || isScrollableX;
   }
